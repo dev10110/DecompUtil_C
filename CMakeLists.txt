@@ -30,7 +30,7 @@ include_directories(${EIGEN3_INCLUDE_DIRS} include)
 # target_link_libraries(test_iterative_decomp ${Boost_LIBRARIES})
 # add_test(test_iterative_decomp test_iterative_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
 
-add_executable(test_libdecomp test/test_libdecomp.c src/decomputil.cc)
+add_executable(test_libdecomp test/test_libdecomp.c src/libdecomputil.cc)
 
 install(FILES "${PROJECT_NAME}Config.cmake" "${PROJECT_NAME}ConfigVersion.cmake"
   DESTINATION "share/${PROJECT_NAME}/cmake")
