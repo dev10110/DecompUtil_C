@@ -1,4 +1,4 @@
-#include <libdecomp.h>
+#include <libdecomputil.h>
 #include <stdio.h>
 
 
