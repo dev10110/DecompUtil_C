@@ -30,6 +30,8 @@ add_executable(test_iterative_decomp test/test_iterative_decomp.cpp)
 target_link_libraries(test_iterative_decomp ${Boost_LIBRARIES})
 add_test(test_iterative_decomp test_iterative_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
 
+add_executable(test_libdecomp test/test_libdecomp.c src/decomputil.cc)
+
 install(FILES "${PROJECT_NAME}Config.cmake" "${PROJECT_NAME}ConfigVersion.cmake"
   DESTINATION "share/${PROJECT_NAME}/cmake")
 
@@ -40,3 +42,21 @@ install(TARGETS
 
 install(DIRECTORY include/decomp_basis include/decomp_geometry include/decomp_util
   DESTINATION include)
+
+
+## create a shared library
+add_library( decomputil SHARED 
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomp.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/decomputil.cc
+)
+target_include_directories(decomputil PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set_target_properties(decomputil PROPERTIES
+  PUBLIC_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomp.h
+)
+
+install(TARGETS decomputil
+  EXPORT  ${PROJECT_NAME}
+            LIBRARY       DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+            ARCHIVE       DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+            RUNTIME       DESTINATION "${CMAKE_INSTALL_BINDIR}"
+)
