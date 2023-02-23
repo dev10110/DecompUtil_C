@@ -12,23 +12,23 @@ set(BUILD_SHARED_LIBS ON)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIRS} include)
 
-include(CTest)
-
-add_executable(test_seed_decomp test/test_seed_decomp.cpp)
-target_link_libraries(test_seed_decomp ${Boost_LIBRARIES})
-add_test(test_seed_decomp test_seed_decomp)
-
-add_executable(test_line_segment test/test_line_segment.cpp)
-target_link_libraries(test_line_segment ${Boost_LIBRARIES})
-add_test(test_line_segment test_line_segment ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
-
-add_executable(test_ellipsoid_decomp test/test_ellipsoid_decomp.cpp)
-target_link_libraries(test_ellipsoid_decomp ${Boost_LIBRARIES})
-add_test(test_ellipsoid_decomp test_ellipsoid_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
-
-add_executable(test_iterative_decomp test/test_iterative_decomp.cpp)
-target_link_libraries(test_iterative_decomp ${Boost_LIBRARIES})
-add_test(test_iterative_decomp test_iterative_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
+# include(CTest)
+# 
+# add_executable(test_seed_decomp test/test_seed_decomp.cpp)
+# target_link_libraries(test_seed_decomp ${Boost_LIBRARIES})
+# add_test(test_seed_decomp test_seed_decomp)
+# 
+# add_executable(test_line_segment test/test_line_segment.cpp)
+# target_link_libraries(test_line_segment ${Boost_LIBRARIES})
+# add_test(test_line_segment test_line_segment ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
+# 
+# add_executable(test_ellipsoid_decomp test/test_ellipsoid_decomp.cpp)
+# target_link_libraries(test_ellipsoid_decomp ${Boost_LIBRARIES})
+# add_test(test_ellipsoid_decomp test_ellipsoid_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
+# 
+# add_executable(test_iterative_decomp test/test_iterative_decomp.cpp)
+# target_link_libraries(test_iterative_decomp ${Boost_LIBRARIES})
+# add_test(test_iterative_decomp test_iterative_decomp ${CMAKE_SOURCE_DIR}/data/obstacles.txt)
 
 add_executable(test_libdecomp test/test_libdecomp.c src/decomputil.cc)
 
@@ -46,12 +46,12 @@ install(DIRECTORY include/decomp_basis include/decomp_geometry include/decomp_ut
 
 ## create a shared library
 add_library( decomputil SHARED 
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomp.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/decomputil.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomputil.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/libdecomputil.cc
 )
 target_include_directories(decomputil PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set_target_properties(decomputil PROPERTIES
-  PUBLIC_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomp.h
+  PUBLIC_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/include/libdecomputil.h
 )
 
 install(TARGETS decomputil

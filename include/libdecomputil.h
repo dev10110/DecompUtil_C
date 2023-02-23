@@ -1,12 +1,10 @@
 
-#ifndef __WRAPPER_DECOMP
-#define __WRAPPER_DECOMP
+#ifndef __LIBDECOMPUTIL
+#define __LIBDECOMPUTIL
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-int twice(int x);
 
 int seedDecomp2d_polyhedron( float posx, float posy, 
     long long nobs, float* obsx, float* obsy,
@@ -20,4 +18,4 @@ int seedDecomp2d_polyhedron( float posx, float posy,
 }
 #endif
 
-#endif // __WRAPPER_DECOMP
+#endif // __LIBDECOMPUTIL

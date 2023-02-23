@@ -3,13 +3,9 @@
 #include <decomp_util/seed_decomp.h>
 #include <decomp_geometry/geometric_utils.h>
 
-#include <libdecomp.h>
+#include <libdecomputil.h>
 
 extern "C" {
-
-int twice(int x){
-  return 2*x;
-}
 
 int seedDecomp2d_polyhedron( float posx, float posy, 
     long long nobs, float* obsx, float* obsy,
