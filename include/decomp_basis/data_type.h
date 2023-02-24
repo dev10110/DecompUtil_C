@@ -5,6 +5,10 @@
  * Mostly alias from Eigen Library.
  */
 
+#ifdef _WIN32
+#define _USE_MATH_DEFINES
+#endif
+
 #include <stdio.h>
 #include <math.h>
 #include <limits>
