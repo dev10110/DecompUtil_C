@@ -23,14 +23,14 @@ void test2D()
 
   float dilation = 0.1;
 
-  unsigned long long npoly = seedDecomp2d_polyhedron(
+  int npoly = seedDecomp2d_polyhedron(
 		  posx, posy,
 		  nobs, obs_x, obs_y,
 		  bbox_x, bbox_y,
 		  dilation, max_poly,
 		  poly_px, poly_py, poly_nx, poly_ny);
 
-  printf("N poly: %lld\n", npoly);
+  printf("N poly: %d\n", npoly);
   if (npoly==8){
 	  printf("SUCCESS!\n");
   } else {
@@ -65,14 +65,14 @@ void test3D()
 
   float dilation = 0.1;
 
-  unsigned long long npoly = seedDecomp3d_polyhedron(
+  int npoly = seedDecomp3d_polyhedron(
 		  posx, posy, posz,
 		  nobs, obs_x, obs_y, obs_z,
 		  bbox_x, bbox_y, bbox_z,
 		  dilation, max_poly,
 		  poly_px, poly_py, poly_pz, poly_nx, poly_ny, poly_nz);
 
-  printf("N poly: %lld\n", npoly);
+  printf("N poly: %d\n", npoly);
   if (npoly==10){
           printf("SUCCESS!\n");
   } else {
