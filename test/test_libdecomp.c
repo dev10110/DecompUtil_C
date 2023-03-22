@@ -12,7 +12,7 @@ void test2D()
 
   long long nobs = 4;
 
-  const int max_poly = 10;
+  const long long max_poly = 10;
   float poly_px[max_poly];
   float poly_py[max_poly];
   float poly_nx[max_poly];
@@ -51,7 +51,7 @@ void test3D()
 
   long long nobs = 4;
 
-  const int max_poly = 20;
+  const long long max_poly = 20;
   float poly_px[max_poly];
   float poly_py[max_poly];
   float poly_pz[max_poly];
